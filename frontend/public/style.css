@@ -1,0 +1,47 @@
+.navbar-color {
+  background-color: #282a35;
+}
+
+.navlink-color {
+  color: white;
+  border: 1px solid #282a35;
+  border-radius: 5px;
+}
+
+.login-btn {
+  background-color: rgb(222, 91, 43);
+}
+
+.login-btn:hover {
+  background-color: rgb(227, 88, 37);
+}
+
+.navlink-color:hover {
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.navbar-toggler-color {
+  color: white;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: white;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* carousel */
+
+.carousel-inner {
+  height: 75vh;
+}
+
+.carousel-item,
+img {
+  height: 100% !important;
+  width: 100% !important;
+}
