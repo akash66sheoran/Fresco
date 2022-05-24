@@ -1,5 +1,6 @@
 import React from 'react'
 import MetaData from './layout/MetaData'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     return (
@@ -9,7 +10,7 @@ const Home = () => {
                 <img src="./images/banner-image.jpg" className='banner' alt="" />
                 <div className="hero-text">
                     <h1>Buy fresh fruits and vegetables</h1>
-                    <button>Buy Now</button>
+                    <Link to="/products" className="btn btn-success login-btn ms-4">Buy Now</Link>
                 </div>
             </div>
         </>

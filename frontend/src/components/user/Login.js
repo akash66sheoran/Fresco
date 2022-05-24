@@ -11,6 +11,7 @@ const Login = ({ history, location }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -19,12 +20,13 @@ const Login = ({ history, location }) => {
 
     useEffect(() => {
 
-        if (isAuthenticated) {
-            navigate('/')
+        if (error) {
+            setErrorMessage(error)
+            dispatch(clearErrors());
         }
 
-        if (error) {
-            dispatch(clearErrors());
+        if (isAuthenticated) {
+            navigate('/')
         }
 
     }, [dispatch, isAuthenticated, error, navigate])
@@ -43,6 +45,9 @@ const Login = ({ history, location }) => {
                     <div className="row mt-lg-5">
                         <div className="mx-auto col col-lg-4">
                             <form className="shadow-lg p-3" onSubmit={submitHandler}>
+                                {errorMessage && (
+                                    <p className="error"> {errorMessage} </p>
+                                )}
                                 <h1 className="mb-3">Login</h1>
                                 <div className="form-group my-3">
                                     <label htmlFor="email_field">Email</label>

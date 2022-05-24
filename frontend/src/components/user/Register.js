@@ -11,6 +11,7 @@ const Register = ({ history }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -24,6 +25,7 @@ const Register = ({ history }) => {
         }
 
         if (error) {
+            setErrorMessage(error)
             dispatch(clearErrors());
         }
 
@@ -42,6 +44,9 @@ const Register = ({ history }) => {
             <div className="row mt-lg-5">
                 <div className="mx-auto col col-lg-4">
                     <form className="shadow-lg p-3" onSubmit={submitHandler} encType='multipart/form-data'>
+                        {errorMessage && (
+                            <p className="error"> {errorMessage} </p>
+                        )}
                         <h1 className="mb-3">Register</h1>
 
                         <div className="form-group my-3">
