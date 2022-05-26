@@ -10,8 +10,10 @@ app.use(cookieParser())
 // import routes
 const userRoutes = require('./routes/userRoutes')
 const productRoutes = require('./routes/productRoutes')
+const orderRoutes = require('./routes/orderRoutes')
 app.use(userRoutes)
 app.use(productRoutes)
+app.use(orderRoutes)
 
 // middleware to handle errors
 app.use(errorMiddleware)

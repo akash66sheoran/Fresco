@@ -8,6 +8,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
 
     const { user, loading } = useSelector(state => state.auth)
+    const { cartItems } = useSelector(state => state.cart)
 
     const logoutHandler = () => {
         dispatch(logout())
@@ -16,7 +17,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-color">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Navbar</Link>
+                <Link className="navbar-brand" to="/">Fresco</Link>
                 <button className="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -34,8 +35,8 @@ const Navbar = () => {
                     </ul>
                     <div className="me-5">
                         <Link to="/cart" style={{ textDecoration: 'none' }} >
-                            <span id="cart" className="ml-3">Cart</span>
-                            <span className="ml-1" id="cart_count">0</span>
+                            <span id="cart" className="ms-3">Cart</span>
+                            <span className="ms-1" id="cart_count">{cartItems.length}</span>
                         </Link>
                         {user ? (
                             <div className="ms-4 dropdown d-inline">

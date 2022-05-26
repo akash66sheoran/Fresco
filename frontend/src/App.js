@@ -14,6 +14,7 @@ import ProtectedRoute from './components/route/ProtectedRoute';
 import UpdateProfile from './components/user/UpdateProfile';
 import UpdatePassword from './components/user/UpdatePassword';
 import ForgotPassword from './components/user/ForgotPassword';
+import Cart from './components/cart/Cart'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
         <Route path='/register' element={<Register />} exact />
         <Route path='/products' element={<Products />} exact />
         <Route path='/products/search/:keyword' element={<Products />} />
+        <Route path='/cart' element={<Cart />} />
         <Route path='/me' element={
           <ProtectedRoute>
             <Profile />
