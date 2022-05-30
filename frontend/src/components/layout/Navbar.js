@@ -27,16 +27,13 @@ const Navbar = () => {
                             <Link className="nav-link navlink-color" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link navlink-color" aria-current="page" to="/">About</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link navlink-color" aria-current="page" to="/">Contact Us</Link>
+                            <Link className="nav-link navlink-color" aria-current="page" to="/products">Products</Link>
                         </li>
                     </ul>
                     <div className="me-5">
                         <Link to="/cart" style={{ textDecoration: 'none' }} >
                             <span id="cart" className="ms-3">Cart</span>
-                            <span className="ms-1" id="cart_count">{cartItems.length}</span>
+                            <span className="ms-1" id="cart_count">{user ? cartItems.length : 0}</span>
                         </Link>
                         {user ? (
                             <div className="ms-4 dropdown d-inline">

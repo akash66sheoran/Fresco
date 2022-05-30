@@ -7,16 +7,16 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { login, clearErrors } from '../../actions/userActions'
 
-const Login = ({ history, location }) => {
+const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const { isAuthenticated, error, loading } = useSelector(state => state.auth);
+    const { isAuthenticated, error, loading } = useSelector(state => state.auth)
 
     useEffect(() => {
 
