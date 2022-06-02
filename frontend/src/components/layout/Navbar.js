@@ -17,7 +17,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-color">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Fresco</Link>
+                <Link className="navbar-brand" to="/"><img src="/images/logo1.jpg" className="rounded-pill" alt="" /></Link>
                 <button className="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

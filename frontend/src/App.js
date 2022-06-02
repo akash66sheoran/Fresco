@@ -21,7 +21,10 @@ import axios from 'axios';
 import Payment from './components/cart/Payment';
 import OrderSuccess from './components/cart/OrderSuccess'
 import ListOrders from './components/order/ListOrders';
-import OrderDetails from './components/order/OrderDetails';
+import OrderDetails from './components/order/OrderDetails'
+import Dashboard from './components/admin/Dashboard';
+import ProductsList from './components/admin/ProductsList';
+import NewProduct from './components/admin/NewProduct';
 
 // Payment
 import { Elements } from '@stripe/react-stripe-js'
@@ -95,6 +98,18 @@ function App() {
             }
           />
         }
+        <Route path='/dashboard' isAdmin={true} element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>} exact />
+        <Route path='/admin/products' isAdmin={true} element={
+          <ProtectedRoute>
+            <ProductsList />
+          </ProtectedRoute>} exact />
+        <Route path='/admin/product' isAdmin={true} element={
+          <ProtectedRoute>
+            <NewProduct />
+          </ProtectedRoute>} exact />
       </Routes>
       <Footer />
     </BrowserRouter>

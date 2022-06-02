@@ -3,6 +3,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const errorMiddleware = require('./middlewares/errors')
 const dotenv = require('dotenv');
+const fileUpload = require('express-fileupload')
 
 // setting up config file
 dotenv.config()
@@ -10,6 +11,7 @@ dotenv.config()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
+app.use(fileUpload({ useTempFiles: true }))
 
 // import routes
 const userRoutes = require('./routes/userRoutes')
