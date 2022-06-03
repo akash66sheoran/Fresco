@@ -13,7 +13,6 @@ import Profile from './components/user/Profile';
 import ProtectedRoute from './components/route/ProtectedRoute';
 import UpdateProfile from './components/user/UpdateProfile';
 import UpdatePassword from './components/user/UpdatePassword';
-import ForgotPassword from './components/user/ForgotPassword';
 import Cart from './components/cart/Cart'
 import Delivery from './components/cart/Delivery';
 import ConfirmOrder from './components/cart/ConfirmOrder';
@@ -89,7 +88,6 @@ function App() {
           <ProtectedRoute>
             <UpdatePassword />
           </ProtectedRoute>} exact />
-        <Route path='/password/forgot' element={<ForgotPassword />} exact />
         {stripeApiKey &&
           <Route path="/payment"
             element={
