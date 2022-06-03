@@ -38,6 +38,10 @@ const Login = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        toast.success("Logged in successfully", {
+            position: "top-center",
+            theme: "colored"
+        })
         dispatch(login(email, password))
     }
 

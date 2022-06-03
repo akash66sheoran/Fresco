@@ -7,20 +7,30 @@ import Loader from './layout/Loader'
 import Search from './layout/Search'
 import Card from './Card'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Products = () => {
 
     const dispatch = useDispatch()
     const params = useParams()
 
-    const { loading, products } = useSelector(state => state.products)
+    const { loading, products, error } = useSelector(state => state.products)
 
     const keyword = params.keyword
 
     useEffect(() => {
 
+        if (error) {
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
+        }
+
         dispatch(getProducts(keyword))
 
-    }, [dispatch, keyword])
+    }, [dispatch, keyword, error])
 
     return (
         <>
@@ -42,6 +52,7 @@ const Products = () => {
                 </>
             )
             }
+            <ToastContainer />
         </>
     )
 }

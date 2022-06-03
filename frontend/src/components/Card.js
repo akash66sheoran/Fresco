@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { addItemToCart } from '../actions/cartActions'
 import { useDispatch } from 'react-redux'
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Card = ({ product }) => {
 
     const [quantity, setQuantity] = useState(0)
@@ -20,6 +23,10 @@ const Card = ({ product }) => {
     }
 
     const addToCart = () => {
+        toast.success("Added to cart", {
+            position: "top-center",
+            theme: "colored"
+        })
         dispatch(addItemToCart(product._id, quantity))
     }
 

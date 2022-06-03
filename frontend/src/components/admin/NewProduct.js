@@ -2,6 +2,9 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import MetaData from '../layout/MetaData'
 import Sidebar from './Sidebar'
 
@@ -30,12 +33,19 @@ const NewProduct = () => {
     useEffect(() => {
 
         if (error) {
-            console.log(error)
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors())
         }
 
         if (success) {
             navigate('/admin/products');
+            toast.success('Product created successfully', {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch({ type: NEW_PRODUCT_RESET })
         }
 

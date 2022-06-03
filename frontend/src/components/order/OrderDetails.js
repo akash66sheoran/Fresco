@@ -1,6 +1,9 @@
 import React, { Fragment, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 
@@ -19,6 +22,10 @@ const OrderDetails = () => {
         dispatch(getOrderDetails(params.id));
 
         if (error) {
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors())
         }
     }, [dispatch, error, params.id])

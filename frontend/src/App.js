@@ -28,6 +28,9 @@ import OrdersList from './components/admin/OrdersList';
 import ProcessOrder from './components/admin/ProcessOrder';
 import UsersList from './components/admin/UsersList';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Payment
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
@@ -124,6 +127,7 @@ function App() {
             <UsersList />
           </ProtectedRoute>} exact />
       </Routes>
+      <ToastContainer />
       <Footer />
     </BrowserRouter>
   );

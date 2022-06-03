@@ -12,6 +12,7 @@ const Cart = () => {
     const navigate = useNavigate()
 
     const { cartItems } = useSelector(state => state.cart)
+    const { user } = useSelector(state => state.auth)
 
     const removeCartItemHandler = (id) => {
         dispatch(removeItemFromCart(id))
@@ -40,7 +41,7 @@ const Cart = () => {
     return (
         <Fragment>
             <MetaData title={'Your Cart'} />
-            {cartItems.length === 0 ? <h2 className="ms-5 mt-5">Your Cart is Empty</h2> : (
+            {!user || cartItems.length === 0 ? <h2 className="ms-5 mt-5">Your Cart is Empty</h2> : (
                 <Fragment>
                     <div className="container">
                         <h2 className="mt-5">Your Cart: <b>{cartItems.length} items</b></h2>

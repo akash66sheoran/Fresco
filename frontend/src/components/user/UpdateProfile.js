@@ -3,6 +3,9 @@ import React, { Fragment, useState, useEffect } from 'react'
 import MetaData from '../layout/MetaData'
 import { useNavigate } from 'react-router-dom'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useDispatch, useSelector } from 'react-redux'
 import { updateProfile, loadUser, clearErrors } from '../../actions/userActions'
 import { UPDATE_PROFILE_RESET } from '../../constants/userConstants'
@@ -26,10 +29,19 @@ const UpdateProfile = () => {
         }
 
         if (error) {
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors());
         }
 
         if (isUpdated) {
+
+            toast.success("Profile updated successfully", {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(loadUser());
 
             navigate('/me')
@@ -84,6 +96,7 @@ const UpdateProfile = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </Fragment>
     )
 }

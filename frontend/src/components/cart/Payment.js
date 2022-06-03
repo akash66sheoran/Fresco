@@ -3,6 +3,9 @@ import React, { Fragment, useEffect } from 'react'
 import MetaData from '../layout/MetaData'
 import CheckoutSteps from './CheckoutSteps'
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -37,6 +40,10 @@ const Payment = () => {
     useEffect(() => {
 
         if (error) {
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors())
         }
 

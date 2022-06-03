@@ -2,6 +2,9 @@ import React, { Fragment, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MDBDataTable } from 'mdbreact'
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 import Sidebar from './Sidebar'
@@ -22,10 +25,18 @@ const ProductsList = () => {
         dispatch(getAdminProducts());
 
         if (error) {
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors())
         }
 
         if (deleteError) {
+            toast.success("Order deleted successfully", {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors())
         }
 

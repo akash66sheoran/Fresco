@@ -2,6 +2,9 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { updatePassword, clearErrors } from '../../actions/userActions'
@@ -20,10 +23,19 @@ const UpdatePassword = () => {
     useEffect(() => {
 
         if (error) {
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors());
         }
 
         if (isUpdated) {
+
+            toast.success("Password updated successfully", {
+                position: "top-center",
+                theme: "colored"
+            })
 
             navigate('/me')
 
@@ -74,7 +86,7 @@ const UpdatePassword = () => {
                     </form>
                 </div>
             </div>
-
+            <ToastContainer />
         </Fragment>
     )
 }

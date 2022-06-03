@@ -2,6 +2,9 @@ import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MDBDataTable } from 'mdbreact'
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 
@@ -18,7 +21,10 @@ const ListOrders = () => {
         dispatch(myOrders());
 
         if (error) {
-            alert.error(error);
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors())
         }
     }, [dispatch, error])
