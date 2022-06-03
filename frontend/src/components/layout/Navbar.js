@@ -30,6 +30,7 @@ const Navbar = () => {
                             <Link className="nav-link navlink-color" aria-current="page" to="/products">Products</Link>
                         </li>
                     </ul>
+
                     <div className="me-5">
                         <Link to="/cart" style={{ textDecoration: 'none' }} >
                             <span id="cart" className="ms-3">Cart</span>

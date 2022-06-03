@@ -2,6 +2,9 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import MetaData from '../layout/MetaData'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Loader from '../layout/Loader'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -11,7 +14,6 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -21,7 +23,10 @@ const Login = () => {
     useEffect(() => {
 
         if (error) {
-            setErrorMessage(error)
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors());
         }
 
@@ -45,9 +50,6 @@ const Login = () => {
                     <div className="row mt-lg-5">
                         <div className="mx-auto col col-lg-4">
                             <form className="shadow-lg p-3" onSubmit={submitHandler}>
-                                {errorMessage && (
-                                    <p className="error"> {errorMessage} </p>
-                                )}
                                 <h1 className="mb-3">Login</h1>
                                 <div className="form-group my-3">
                                     <label htmlFor="email_field">Email</label>
@@ -86,7 +88,7 @@ const Login = () => {
                             </form>
                         </div>
                     </div>
-
+                    <ToastContainer />
 
                 </Fragment>
             )}

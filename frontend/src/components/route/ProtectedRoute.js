@@ -6,7 +6,7 @@ import { loadUser } from '../../actions/userActions'
 
 const ProtectedRoute = ({ children, isAdmin }) => {
 
-    const { isAuthenticated = false, loading, user } = useSelector((state) => state.auth)
+    const { isAuthenticated = false, loading = true, user } = useSelector((state) => state.auth)
 
     const dispatch = useDispatch()
 

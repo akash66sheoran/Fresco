@@ -1,17 +1,18 @@
 import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useDispatch, useSelector } from 'react-redux'
 import { register, clearErrors } from '../../actions/userActions'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Register = ({ history }) => {
+const Register = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
 
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -25,7 +26,10 @@ const Register = ({ history }) => {
         }
 
         if (error) {
-            setErrorMessage(error)
+            toast.error(error, {
+                position: "top-center",
+                theme: "colored"
+            })
             dispatch(clearErrors());
         }
 
@@ -44,9 +48,7 @@ const Register = ({ history }) => {
             <div className="row mt-lg-5">
                 <div className="mx-auto col col-lg-4">
                     <form className="shadow-lg p-3" onSubmit={submitHandler} encType='multipart/form-data'>
-                        {errorMessage && (
-                            <p className="error"> {errorMessage} </p>
-                        )}
+
                         <h1 className="mb-3">Register</h1>
 
                         <div className="form-group my-3">
@@ -97,7 +99,7 @@ const Register = ({ history }) => {
                     </form>
                 </div>
             </div>
-
+            <ToastContainer />
         </Fragment>
     )
 }

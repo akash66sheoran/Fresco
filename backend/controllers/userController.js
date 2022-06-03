@@ -12,6 +12,10 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
     const { name, email, password } = req.body;
 
+    if (!name || !email || !password) {
+        return next(new ErrorHandler('All fields are required', 400))
+    }
+
     const user = await User.create({
         name,
         email,
